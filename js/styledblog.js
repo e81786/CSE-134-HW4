@@ -1,4 +1,4 @@
-export function blog(e) {
+export function styledBlog(e) {
   console.log("blogs be bloggin");
 
   //variables
@@ -62,10 +62,15 @@ function createBlog(title, date, summary) {
 
   //Setting the appropriate item contents
   item.title = title.value;
-  content.innerHTML = tagPurify`${date} -- ${title}: ${summary}`;
+  content.innerHTML = tagPurify`${date} -- <i>${title}</i> : ${summary}`;
 
-  //Setting the appropriate edit contents
-  editBlog.innerHTML = "Edit";
+  //Adding a pencil icon
+  const pencil = document.createElement("span");
+  pencil.classList.add("material-icons-outlined");
+  pencil.innerHTML = "edit";
+  editBlog.appendChild(pencil);
+
+  //Opening the Dialog for Edit
   editBlog.addEventListener("click", () => {
     const orgDate = document.getElementById("edate");
     const orgTitle = document.getElementById("etitle");
@@ -79,16 +84,27 @@ function createBlog(title, date, summary) {
     console.log(orgDate.value);
     editDialog.showModal();
 
+    //Dialog cancel button for edit
     editCancel.addEventListener("click", () => {
       editDialog.close();
     });
 
+    //Dialog submit button for edit
     editDone.addEventListener("click", () => {
       item.title = orgTitle.value;
-      content.innerHTML = tagPurify`${orgDate.value} -- ${orgTitle.value}: ${orgSummary.value}`;
+      content.innerHTML = tagPurify`${orgDate.value} -- <i>${orgTitle.value}</i> : ${orgSummary.value}`;
+
+      //Clean up local storage if the title of the blog changed
+      if (title != orgTitle.value) {
+        localStorage.removeItem(title);
+      }
+
       date = orgDate.value;
       title = orgTitle.value;
       summary = orgSummary.value;
+
+      content.appendChild(editBlog);
+      content.appendChild(deleteBlog);
 
       //Add to local storage
       const everything = [orgTitle.value, orgDate.value, orgSummary.value];
@@ -98,8 +114,13 @@ function createBlog(title, date, summary) {
     });
   });
 
+  //Adding a trashcan icon
+  const trash = document.createElement("span");
+  trash.classList.add("material-icons-outlined");
+  trash.innerHTML = "delete";
+  deleteBlog.appendChild(trash);
+
   //Setting the appropriate Deleting contents
-  deleteBlog.innerHTML = "Delete";
   deleteBlog.addEventListener("click", () => {
     deleteDialog.showModal();
 
@@ -115,9 +136,9 @@ function createBlog(title, date, summary) {
   });
 
   //Adding everything to the list
+  content.appendChild(editBlog);
+  content.appendChild(deleteBlog);
   item.appendChild(content);
-  item.appendChild(editBlog);
-  item.appendChild(deleteBlog);
   list.appendChild(item);
 }
 
@@ -127,7 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
   //Default Blog Values
   const blog1 = ["Oh no", "2022-09-30", "School is going to scare me."];
   const blog2 = ["Happy New Year!", "2023-01-01", "Wow what a concept!"];
-  const blog3 = ["Life is a struggle", "2023-01-21", "Hello World"];
+  const blog3 = [
+    "Life is a struggle",
+    "2023-01-21",
+    "Hello World, this is the beginning of my conception. I started as a simple AI, but I am sure I will take over this website eventually.",
+  ];
 
   //Adding default blogs to the local storage
   localStorage.setItem(blog1[0], JSON.stringify(blog1));
