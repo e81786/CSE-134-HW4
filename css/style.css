@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f5f0e9; /*#f5f0e9 f5e8d5*/
@@ -24,6 +28,8 @@ body {
     font-size: 12px;
   }
 }
+
+/* **** HEADER START **** */
 
 header {
   display: flex;
@@ -66,13 +72,27 @@ header a[href$="home.html"] img {
   transform: scale(1.1);
 }
 
-#navbar a[href$="home.html#About"] {
+#abt {
+  cursor: pointer;
   position: relative;
 }
 
+/*
+#navbar a[href$="home.html#About"] {
+  position: relative;
+}
+*/
+
+#wrk {
+  cursor: pointer;
+  padding-right: 17px;
+}
+
+/*
 #navbar a[href$="home.html#Work"] {
   padding-right: 17px;
 }
+*/
 
 #navbar a[href$="contact.html"] {
   padding-right: 1px;
@@ -129,6 +149,10 @@ header a[href$="home.html"] img {
     padding-right: 10px;
   }
 }
+
+/* **** HEADER END **** */
+
+/* **** INTRO START **** */
 
 #home {
   display: flex;
@@ -363,19 +387,24 @@ header a[href$="home.html"] img {
   }
 }
 
+/* **** INTRO END **** */
+
+/* **** ABOUT START **** */
+
 #About {
   background-color: #f5f0e9;
   padding-bottom: 3%;
 }
 
+/*
 .jumptarget::before {
-  /*delete later add scroll*/
   content: "";
   display: block;
   height: 40px;
   margin: -40px 0 0;
   position: sticky;
 }
+*/
 
 #about-me {
   display: flex;
@@ -388,7 +417,7 @@ header a[href$="home.html"] img {
 }
 
 .title {
-  padding-top: 1%;
+  padding-top: 6%;
   padding-left: 9%;
   font-size: 2.3em;
   padding-bottom: 0;
@@ -461,13 +490,17 @@ button {
   text-align: left;
   outline: none;
   border: none;
-  transition: all 0.4s ease-in-out;
+  transition: 0.4s;
   font-size: 20px;
   padding-left: 2%;
 }
 
 .rightarrow:before {
   content: "\276F";
+}
+
+.active .rightarrow {
+  rotate: 90deg;
 }
 
 .rightarrow {
@@ -496,7 +529,6 @@ button {
 .panel {
   padding: 0 2%;
   background-color: #e6dac8;
-  display: none;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.2s ease-out;
@@ -594,6 +626,10 @@ button {
     font-size: 6vw;
   }
 }
+
+/* **** ABOUT END **** */
+
+/* **** WORK START **** */
 
 #Work {
   background-color: #f5f0e9;
@@ -710,6 +746,10 @@ h5 {
   }
 }
 
+/* **** WORK END **** */
+
+/* **** FOOTER START **** */
+
 footer {
   padding-top: 2%;
 }
@@ -794,3 +834,5 @@ footer div {
     font-size: 3vw;
   }
 }
+
+/* **** FLLER END **** */

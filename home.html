@@ -10,8 +10,10 @@
   <meta name="author" content="Eric Dong" />
   <meta name="description" content="Eric Dong's Personal Portfolio" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script></script>
-  <!-- Placeholder -->
+  <script type="module">
+    import { main } from "/js/main.js";
+    window.onload = main;
+  </script>
   <style></style>
 </head>
 
@@ -21,8 +23,10 @@
     <div id="navbar">
       <nav>
         <!--<a href="experiment.html"> Experiments </a>-->
-        <a href="home.html#About">About</a>
-        <a href="home.html#Work">Work</a>
+        <!--<a href="home.html#About" id="abt">About</a>-->
+        <!--<a href="home.html#Work" id="wrk">Work</a>-->
+        <a id="abt">About</a>
+        <a id="wrk">Work</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -82,29 +86,20 @@
         <button class="accordion">
           <span class="rightarrow"></span>Skills
         </button>
-        <!--A FUTURE ACCORDIAN TAG-->
         <div class="panel">
-          <ol>
-            <li>Lorem ipsum...</li>
-          </ol>
+          <p>Lorem ipsum...</p>
         </div>
         <button class="accordion">
           <span class="rightarrow"></span>Hobbies
         </button>
-        <!--A FUTURE ACCORDIAN TAG-->
         <div class="panel">
-          <ol>
-            <li>Lorem ipsum...</li>
-          </ol>
+          <p>Lorem ipsum...</p>
         </div>
         <button class="accordion">
           <span class="rightarrow"></span>Extras
         </button>
-        <!--A FUTURE ACCORDIAN TAG-->
         <div class="panel">
-          <ol>
-            <li>Lorem ipsum...</li>
-          </ol>
+          <p>Lorem ipsum...</p>
         </div>
       </div>
     </section>

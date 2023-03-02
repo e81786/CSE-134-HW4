@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|");
 
 body {
   font-family: "Poppins", sans-serif;
@@ -35,6 +36,11 @@ button {
 #listBlog {
   margin-left: 10%;
   margin-right: 15%;
+  margin-bottom: 3%;
+}
+
+#listBlog li::marker {
+  content: "\e3c6";
 }
 
 .addBlog {
