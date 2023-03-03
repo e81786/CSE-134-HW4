@@ -10,6 +10,15 @@
   <meta name="author" content="Eric Dong" />
   <meta name="description" content="Eric Dong's Personal Portfolio" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WGX24MXLHG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-WGX24MXLHG');
+  </script>
   <script type="module">
     import { main } from "/js/main.js";
     window.onload = main;
@@ -19,7 +28,7 @@
 
 <body>
   <header>
-    <a href="home.html"><img src="images/name-logo.png" alt="Eric Dong" class="me" /></a>
+    <a id="top"><img src="images/name-logo.png" alt="Eric Dong" class="me" /></a>
     <div id="navbar">
       <nav>
         <!--<a href="experiment.html"> Experiments </a>-->
@@ -45,9 +54,9 @@
           looking forward to connect <span>😁</span>
         </p>
         <!--<br /><br /><br /><br /><br /><br />-->
-        <a href="home.html#About" class="scroll">
+        <p class="scroll">
           <span class="downarrow bounce"></span>Learn more about me!
-        </a>
+        </p>
       </div>
     </section>
     <section id="About" class="jumptarget">

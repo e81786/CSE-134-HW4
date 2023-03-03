@@ -8,21 +8,22 @@ function jumps() {
 
   const abt = document.getElementById("abt");
   const wrk = document.getElementById("wrk");
+  const top = document.getElementById("top");
+  const About = document.getElementById("About");
+  const Work = document.getElementById("Work");
 
   abt.addEventListener("click", () => {
-    scrollTo("About");
+    About.scrollIntoView();
   });
 
   wrk.addEventListener("click", () => {
-    window.scrollTo({
-      top: 1900,
-      behvaior: "smooth",
-    });
+    Work.scrollIntoView();
   });
-}
 
-function scrollTo(hash) {
-  location.hash = "#" + hash;
+  top.addEventListener("click", () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  });
 }
 
 function accordian() {
