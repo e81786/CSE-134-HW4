@@ -10,10 +10,7 @@ function jumps() {
   const wrk = document.getElementById("wrk");
 
   abt.addEventListener("click", () => {
-    window.scrollTo({
-      top: 800,
-      behvaior: "smooth",
-    });
+    scrollTo("About");
   });
 
   wrk.addEventListener("click", () => {
@@ -22,6 +19,10 @@ function jumps() {
       behvaior: "smooth",
     });
   });
+}
+
+function scrollTo(hash) {
+  location.hash = "#" + hash;
 }
 
 function accordian() {
